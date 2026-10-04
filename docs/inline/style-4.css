@@ -1,0 +1,28 @@
+
+body { 
+  min-height: 0vw;
+  font-size: calc(0.21551724137931033vw + 0.7413793103448276em);
+}
+
+/* Min Font Size */
+@media screen and (max-width:991px) {
+ body { font-size: 1vw; }
+}
+.container {
+  max-width: 120em;
+}
+
+
+a {
+	color: inherit;
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1580px)  {
+ .btf-image-4 {
+    right: 3.42em;
+    bottom: 4.84em;
+  }
+}
+
+
+

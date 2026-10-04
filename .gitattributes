@@ -1,0 +1,2 @@
+# Keep deployed script bytes stable so browser integrity hashes survive checkout.
+docs/** text eol=lf
