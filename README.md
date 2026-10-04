@@ -1,34 +1,114 @@
+# Immigration Assistant
 
-## 1. Racial Equity Impact
-- **Systemic Barriers:** The project explicitly identifies systemic barriers in `top_level_pitch.md` (*"The Problem: Systemic Inequity," "Time Tax," "bureaucratic violence"*).
-- **Global Awareness:** Immigration shows a deep awareness of how specific nationalities and racial groups (e.g., from African and Middle Eastern nations) are disproportionately affected by policies.
-- **Meaningful Addressal:**
-    - **Legal Empowerment:** The **"Source of Truth"** module (RAG-powered legal AI) democratizes access to expensive legal knowledge, directly countering the "wealth gap" in immigration defense.
-    - **Economic Justice:** The **H1B Analytics** tool sheds light on salary data and sponsorship reality, empowering workers from the **"Global Majority"** (India, Nigeria, etc.) to negotiate fair wages and avoid exploitative employers.
-- **Principles of Equity:** The **"Entry, Stay, Extend"** framework treats immigration not just as a logistics problem, but as a human rights and economic stability issue.
+Immigration Assistant (IA) is a project for people who need immigration information, status records, and employment options.
+The aim is to help users find information that applies to their situation and decide what to do next.
 
-## 2. Creativity & Innovation
-- **Lifecycle Integration:** IA reinvents the experience by combining the entire lifecycle: **Entry** (Global Entry), **Stay** (Legal Compliance/Ops Status), and **Extend** (Jobs/H1B).
-- **Creative "Hacks":** The integration of a **Chrome Extension** to feed real-time data into a React dashboard is a creative solution to the lack of public APIs for interview slots.
-- **Fresh Ideas:** Using an LLM (**Llama 3.3**) to "translate" the USCIS Policy Manual  transforms dense legalese into actionable advice, a significant innovation in accessibility.
+This repository contains the public website for IA.
+The website explains the application and links to a beta demonstration.
+It does not contain the application services or the artificial intelligence model.
 
-## 3. Technical Execution & Feasibility
-- **Architecture:** A functional multi-service architecture, not just a mockup.
-- **Frontend:** Modern stack (**React 19, Vite, Tailwind, Framer Motion**) ensures a responsive, polished feel.
-- **Backend:** **Node.js** server for API proxying and a **Python/RAG** backend for the chatbot demonstrate full-stack capability.
-- **Data Pipeline:** Scripts like `processEmployerCSV.js` and `matchOpportunities.js` show a working data pipeline for H1B analytics.
-- **Feasibility:** Highly feasible for real-world deployment due to reliance on official data sources (USCIS manuals, H1B data hub) and standard browser automation.
+[View the website](https://webpager.onrender.com/)
+| [View the beta demonstration](https://drive.google.com/file/d/1evz-vsDGQTiA7wBvWYEamA5HL3O2Dmlg/view?usp=sharing)
 
-## 4. Human Centered Design
-- **Personalization:** The **"Source of Truth"** feature allows users to upload their own documents, recognizing that every immigrant's case is unique.
-- **Anxiety Reduction:** The **"Ops Status"** dashboard (monitoring I-94s, visa dates) directly addresses the **"anxiety"** and **"mental load"** mentioned in the pitch.
-- **Design Choices:**
-    - **Visual Clarity:** Components like `SlotsTrendChart` and `H1BStatsChart` simplify complex data into understandable visuals.
-    - **Feedback:** The UI is rich with loading states, success notifications, and clear error handling, which is crucial for users already under stress.
+## Entry, Stay, Extend
 
-## 5. Presentation & Communication
-- **Core Narrative:**
-    - **Problem:** *"Immigration is a tax on human potential."*
-    - **Solution:** *"IA: The Life OS for the Global Talent."*
-    - **Impact:** *"Democratizing the American Dream."*
-- **Storytelling:** The use of terms like **"Digital Shield"** (Ops Status) and **"Democratized Law"** (Source of Truth) is excellent branding that makes technical features feel emotionally resonant.
+The project covers three parts of the immigration process.
+
+| Part | Purpose |
+| --- | --- |
+| Entry | Find information about entry requirements and available Global Entry interview appointments. |
+| Stay | Keep immigration status records, visa dates, and important deadlines in one place. |
+| Extend | Find employers that offer H-1B sponsorship and examine options for continued residence. |
+
+## Application features
+
+The application design includes these functions:
+
+- **Status records:** Keep visa dates, I-94 records, and deadlines available for review.
+- **Employer research:** Use H-1B employer and salary data to examine sponsorship options.
+- **Resource search:** Find immigration information and support services that apply to the user.
+- **Personal preferences:** Use visa type, country of origin, career goals, and dates to select relevant information.
+- **Document support:** Use reference material and user documents to help explain immigration information.
+
+The user controls the next action.
+A recommendation does not authorize the application to submit a filing or contact an employer.
+
+## Garvey AI
+
+Garvey AI is the artificial intelligence (AI) assistant in the application design.
+Its reference material includes information from U.S. Citizenship and Immigration Services (USCIS).
+The design also includes support for user documents and questions about immigration status.
+
+The project describes local processing as a privacy objective.
+The model and document processing code are outside this website repository.
+
+## Project status
+
+The website links to a beta demonstration.
+The website shows "Coming Soon" for public application access.
+The demonstration and website describe the project.
+This repository does not provide an application installation package.
+
+## Website code
+
+The website uses EJS templates to produce HTML.
+The generated website runs without an application server.
+Webflow, jQuery, GSAP, ScrollTrigger, and Lottie control the browser animations.
+
+| Path | Contents |
+| --- | --- |
+| `views/` | EJS templates and page sections. |
+| `public/` | Source CSS and JavaScript files. |
+| `docs/` | Generated HTML and assets for GitHub Pages. |
+| `scripts/build-static.js` | Static build script. |
+| `test/` | Checks for asset paths and script integrity. |
+| `server.js` | Express server for the EJS version. |
+
+Some images, fonts, animation data, and external services require an internet connection.
+
+## Build the static website
+
+Node.js and npm are required.
+
+1. Install the dependencies:
+
+   ```sh
+   npm ci
+   ```
+
+2. Run the tests:
+
+   ```sh
+   npm test
+   ```
+
+3. Build the website:
+
+   ```sh
+   npm run build
+   ```
+
+The build writes the website to `docs/`.
+It preserves the animation markup and script order.
+It also corrects asset paths for a GitHub Pages project URL.
+
+## Change the website
+
+1. Change the applicable files in `views/` or `public/`.
+2. Run `npm test`.
+3. Run `npm run build`.
+4. Commit the source changes and the generated files in `docs/`.
+
+For an EJS preview, run `npm start`.
+Then open [localhost:3004](http://localhost:3004).
+
+## Publish with GitHub Pages
+
+1. Open the repository settings on GitHub.
+2. Select **Pages**.
+3. Select **Deploy from a branch**.
+4. Select the **main** branch.
+5. Select the **/docs** folder.
+6. Select **Save**.
+
+See [Static hosting](STATIC-HOSTING.md) for more information about the build and other hosting options.
